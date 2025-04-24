@@ -48,7 +48,7 @@ export const ResetPasswordForm: FC<ResetPasswordFormProps> = ({ token }) => {
                   id="password"
                   name="password"
                   type="password"
-                  placeholder="m@example.com"
+                  placeholder="Your password"
                   required
                   value={formik.values.password}
                   onChange={formik.handleChange}
@@ -66,8 +66,8 @@ export const ResetPasswordForm: FC<ResetPasswordFormProps> = ({ token }) => {
                 <Input
                   id="confirmPassword"
                   name="confirmPassword"
-                  type="confirmPassword"
-                  placeholder="m@example.com"
+                  type="password"
+                  placeholder="Your password"
                   required
                   value={formik.values.confirmPassword}
                   onChange={formik.handleChange}

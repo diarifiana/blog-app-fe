@@ -6,7 +6,7 @@ const ResetPassword = async ({
   params: Promise<{ token: string }>;
 }) => {
   const token = (await params).token;
-  return <ResetPasswordPage />;
+  return <ResetPasswordPage token={token} />;
 };
 
 export default ResetPassword;

@@ -61,10 +61,6 @@ export function LoginForm({
                   <Label htmlFor="password">Password</Label>
                 </div>
 
-                <div className="flex items-center justify-between">
-                  <Label></Label>
-                  <Input></Input>
-                </div>
                 <Input
                   id="password"
                   name="password"
