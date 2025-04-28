@@ -1,8 +1,6 @@
 "use client";
 
 import useAxios from "@/hooks/useAxios";
-import { axiosInstance } from "@/lib/axios";
-import { User } from "@/types/user";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
