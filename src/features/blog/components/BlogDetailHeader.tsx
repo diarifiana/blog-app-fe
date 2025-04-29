@@ -1,18 +1,18 @@
 import { Badge } from "@/components/ui/badge";
-import { Blog } from "@/types/blog";
-import { FC } from "react";
-import { format } from "date-fns";
-import Image from "next/image";
 import useDeleteBlog from "@/hooks/api/blog/useDeleteBlog";
+import { Blog } from "@/types/blog";
+import { format } from "date-fns";
+import { useSession } from "next-auth/react";
+import Image from "next/image";
+import { FC } from "react";
 import ModalDeleteBlog from "./ModalDeleteBlog";
-import { useAuthStore } from "@/stores/auth";
 
 interface BlogDetailHeaderProps {
   blog: Blog;
 }
 const BlogDetailHeader: FC<BlogDetailHeaderProps> = ({ blog }) => {
-  const { user } = useAuthStore();
   const { mutateAsync: deleteBlog, isPending } = useDeleteBlog();
+  const session = useSession();
 
   const handleDeleteBlog = async () => {
     await deleteBlog(blog.id);
@@ -35,7 +35,7 @@ const BlogDetailHeader: FC<BlogDetailHeaderProps> = ({ blog }) => {
           <span className="capitalize">{blog.user?.name}</span>
         </p>
 
-        {user?.id === blog.userId && (
+        {Number(session.data?.user?.id) === blog.userId && (
           <ModalDeleteBlog isPending={isPending} onClick={handleDeleteBlog} />
         )}
       </div>
